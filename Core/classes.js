@@ -1,6 +1,6 @@
 class Sun extends Vector2 {
     /*
-    Point from which rays are emitted. A Sun can be controlled 
+    Point from which rays are emitted. A Sun can be controlled
     */
     constructor(x,y) {
         super(x,y);
@@ -146,7 +146,7 @@ class Scene {
                 this.rays[i].vector.rotate(random(0, 2*Math.PI));
         }
     }
-    
+
     createNewDiffuseRay(ray, block, intersect) {
         var newRay = ray.copy();
         newRay.diffuse = true;
@@ -155,7 +155,7 @@ class Scene {
         newRay.vector.scale(canvas.width*2);
         this.diffuseRays.push(newRay);
     }
-    
+
     createNewReflectedRay(ray, block, intersect) {
         var newRay = ray.copy();
         newRay.origin.set(intersect.x, intersect.y);
@@ -218,7 +218,7 @@ class Scene {
             return a.len() - b.len();
         });
     }
-    
+
     sortBlocks2(ray) {
         this.blocks.sort(function(blockA, blockB) {
             var a = blockA.center().subtract(ray.origin);
@@ -281,7 +281,17 @@ class Scene {
         return nums;
     }
 
-    load(saveString) {
+    loadFile(filepath) {
+      var client = new XMLHttpRequest();
+      var self = this;
+      client.open('GET', filepath);
+      client.onreadystatechange = function() {
+        self.loadString(client.responseText);
+      }
+      client.send();
+    }
+
+    loadString(saveString) {
         this.blocks = [];
         var newBlocks = saveString.split(',');
         for (var i=0; i<newBlocks.length; i++) {
