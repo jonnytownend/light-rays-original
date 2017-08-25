@@ -2,7 +2,7 @@
 <html>
 <body>
 	<canvas id="canvas"></canvas>
-    
+
 	<div id="hud">
         <div id="hud-container">
             <h1>CONTROLS</h1>
@@ -14,20 +14,20 @@
             <p>Press <code>U</code> to remove the last mirror drawn.</p>
         </div>
 	</div>
-    
+
     <textarea></textarea>
-    
+
     <!--DEPENDANCES-->
     <script src="bower_components/dat.gui/dat.gui.js"></script>
     <script src="Dependancies/jquery.js"></script>
-    <script src="Dependancies/vector2_2.js"></script>
-    
-    <!--HELPER FILES-->
-    <script src="Helpers/global_variables.js"></script>
-    <script src="Helpers/lineIntersection.js"></script>
-    <script src="Helpers/classes_raydetect.js"></script>
-    <script src="Helpers/keybinds.js"></script>
-    <link rel="stylesheet" href="Helpers/style.css"/>
-    <script src="setup.js"></script>
+    <script src="Dependancies/vector2.js"></script>
+		<script src="Dependancies/lineIntersection.js"></script>
+
+    <!--CORE FILES-->
+    <script src="Core/global_variables.js"></script>
+    <script src="Core/classes.js"></script>
+    <script src="Core/keybinds.js"></script>
+    <link rel="stylesheet" href="Core/style.css"/>
+    <script src="Core/setup.js"></script>
 </body>
 </html>
