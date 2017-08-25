@@ -9,10 +9,6 @@ function setup() {
     scene.loadFile('SavedStates/complex.txt');
 
     scene.castRays();
-
-    //dat.gui setup
-    gui = new dat.GUI();
-    //gui.add(scene.sun, 'color');
 }
 
 function loop(fps) {
