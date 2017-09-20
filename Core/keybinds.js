@@ -8,7 +8,7 @@ function mouseDown(event) {
         scene.sun.dragged = true;
     }
     else {
-        blockStart.set(event.pageX, event.pageY);
+        blockStart.set(mouse.x, mouse.y);
         currentBlock = new Block();
         currentBlock.origin.set(blockStart.x, blockStart.y);
         scene.addBlock(currentBlock);
@@ -17,10 +17,11 @@ function mouseDown(event) {
 canvas.addEventListener("mousedown", mouseDown, false);
 
 function mouseMove(event) {
+    var rect = canvas.getBoundingClientRect();
     pmouse.x = mouse.x;
     pmouse.y = mouse.y;
-    mouse.x = event.pageX;
-    mouse.y = event.pageY;
+    mouse.x = event.pageX - rect.x;
+    mouse.y = event.pageY - rect.y;
     if (mouse.down) {
         if (scene.sun.dragged) {
             scene.sun.set(mouse.x, mouse.y);
@@ -87,12 +88,12 @@ function keyDown(event) {
     }
     else if (event.keyCode == 65) //a
         scene.addSun();
-    
+
     else if (String.fromCharCode(event.keyCode) == 'H') {
         var hud = $('#hud');
         hud.fadeToggle();
     }
-    
+
     //console.log(event.keyCode);
 }
 window.addEventListener("keydown", keyDown, false);
