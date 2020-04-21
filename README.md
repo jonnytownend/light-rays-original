@@ -8,4 +8,4 @@ To Do:
 
 ![ScreenShot](https://raw.github.com/jonnytownend/light-rays/master/Images/screenshot.png)
 
-See it in action [here](http://lightrays.bitballoon.com).
+See it in action [here](https://jonnytownend.github.io/light-rays/).
